@@ -1,0 +1,12 @@
+name: MongoDB CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Docker Image
+        run: docker build . --file Dockerfile --tag ${{ github.repository }}:latest

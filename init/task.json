@@ -1,0 +1,166 @@
+[
+  {
+    "_id": {
+      "$oid": "6150281b8031b5b4e70a881e"
+    },
+    "title": "Schufa-Auskunft",
+    "description": "Um sich während der Aufgabe mehr auf die Integration statt auf die Erstellung der Komponenten konzentrieren zu können, wurde bereits ein „Credit bureau“ erstellt. Die Komponente ist ein WebService, welcher eine virtuelle Schufa darstellt. Dieser Service ist sowohl als SOAP-Service als auch als REST-Service erreichbar. Die Eingabeparameter entnehmen Sie der Parameterliste. Als Antwort liefert der WebService anschließend ein zufälliges Rating in Form des Schufa Score-Wertes (zwischen 0 und 9.999, siehe Tabelle mit Rating-Leveln). Den zweiten Rückgabewert „failureRiskInPercent“ können sie ignorieren. Um die Anwendung trotz Zufallswerte entsprechend testen zu können, muss auch übergeben werden, welche Ratingstufe gewünscht ist.",
+    "step": 1,
+    "endpoints": [
+      {
+        "type": "REST",
+        "url": "",
+        "docsUrl": "https://bambusinessintegration.wi.hs-furtwangen.de/schufa/docs.html"
+      },
+      {
+        "type": "SOAP",
+        "url": "https://bambusinessintegration.wi.hs-furtwangen.de/schufa/ws",
+        "docsUrl": "https://bambusinessintegration.wi.hs-furtwangen.de/schufa/ws/rating.wsdl"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "socialSecurityNumber",
+        "type": "STRING",
+        "description": "Zufällige Sozialversicherungsnummer z.B. 12123456M123"
+      },
+      {
+        "name": "ratingLevel",
+        "type": "CHARACTER",
+        "description": "Rating zwischen A und P (Groß- und Kleinschreibung möglich), wie aus Tabelle bei der Beschreibung des Loan Broker zu entnehmen ist"
+      },
+      {
+        "name": "delayInMilliseconds",
+        "type": "LONG",
+        "description": "Zeit in Millisekunden, um die Antwort verzögert werden soll, zwischen 0 und 600.000"
+      },
+      {
+        "name": "username",
+        "type": "STRING",
+        "description": "Benutzername der Gruppe"
+      },
+      {
+        "name": "password",
+        "type": "STRING",
+        "description": "Passwort der Gruppe"
+      }
+    ],
+    "banks": [
+      "schufa"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "61502fa9afad97203db562b3"
+    },
+    "title": "Synchrone Bank",
+    "description": "Um schnell erste Erfolge zu erzielen, wurde auch eine virtuelle Bank implementiert. Diese ist eine synchrone Bank und kann wie die Schufa über SOAP oder REST aufgerufen werden. An die Bank kann eine Kreditanfrage gestellt werden. Die benötigten Parameter entnehmen Sie der Parameterliste. Nicht alle Kreditanfragen werden von der Bank akzeptiert. Die Kreditrahmenbedinungen entnehmen Sie aus der Bankbeschreibung. Der Rückgabewert der Bank entspricht einem Zinsatz für den gewünschten Kredit zwischen 0 und 10% vom Datentyp Double als JSON.",
+    "step": 2,
+    "endpoints": [
+      {
+        "type": "REST",
+        "url": "",
+        "docsUrl": "https://bambusinessintegration.wi.hs-furtwangen.de/deutschebank/docs.html"
+      },
+      {
+        "type": "SOAP",
+        "url": "https://bambusinessintegration.wi.hs-furtwangen.de/deutschebank/ws",
+        "docsUrl": "https://bambusinessintegration.wi.hs-furtwangen.de/deutschebank/ws/credit.wsdl"
+      }
+    ],
+    "parameters": [
+      {
+        "name": "amountInEuros",
+        "type": "INTEGER",
+        "description": "Gewünschte Höhe des Kredites in Euro"
+      },
+      {
+        "name": "termInMonths",
+        "type": "INTEGER",
+        "description": "Gewünschte Länge des Kredites in Monaten"
+      },
+      {
+        "name": "ratingLevel",
+        "type": "CHARACTER",
+        "description": "Rating zwischen A und P (Groß- und Kleinschreibung möglich), wie aus Tabelle bei der Beschreibung des Loan Broker zu entnehmen ist"
+      },
+      {
+        "name": "delayInMilliseconds",
+        "type": "LONG",
+        "description": "Zeit in Millisekunden, um die Antwort verzögert werden soll, zwischen 0 und 600.000"
+      },
+      {
+        "name": "username",
+        "type": "STRING",
+        "description": "Benutzername der Gruppe"
+      },
+      {
+        "name": "password",
+        "type": "STRING",
+        "description": "Passwort der Gruppe"
+      }
+    ],
+    "banks": [
+      "deutschebank"
+    ]
+  },
+  {
+    "_id": {
+      "$oid": "61503edf6354bd996d9e89a6"
+    },
+    "title": "Asynchrone Banken",
+    "description": "Neben der synchronen Bank existieren auch bereits vorgegebene asynchrone Banken, welche per JMS erreichbar sind. Um die Banken zu erreichen, müssen Sie im VPN der Hochschule sein und den Port in der URL mit angeben. Sie kommunizieren nicht direkt mit den Banken, sondern mit einem ActiveMQ-Broker als Middleware. Die Messages an den Broker müssen als JSON verpackt sein. Die Message entpricht also einem JSON-Objekt mit den Parametern als einzelne Key-Value-Pairs. Ein Error-Handling wie in den synchronen Services gibt es nicht. Sie übernehmen daher die Anfragegrenzen aus der internen Konfiguration der Banken. Der Rückgabewert der Banken entspricht wie bei der synchronen Bank einem Zinsatz für den gewünschten Kredit zwischen 0 und 10% vom Datentyp Double. Eine Bank hört auf einem Topic des Broker nach Nachrichten für diese Bank (Bei der Sparkasse z.B. „sparkasse“). Sie entnehmen die Antworten der Banken auf ihrem Username-Topic. (Bei der Gruppe mit dem Usernamen test wäre erstellt die Bank ein neues Topic test auf dem Sie dann ihre Antwort entnehmen können.",
+    "step": 3,
+    "endpoints": [
+      {
+        "type": "JMS",
+        "url": "tcp://bambusinessintegration.wi.hs-furtwangen.de:61616",
+        "docsUrl": ""
+      }
+    ],
+    "parameters": [
+      {
+        "name": "requestId",
+        "type": "STRING",
+        "description": "Zufällige Request-ID"
+      },
+      {
+        "name": "amountInEuros",
+        "type": "INTEGER",
+        "description": "Gewünschte Höhe des Kredites in Euro"
+      },
+      {
+        "name": "termInMonths",
+        "type": "INTEGER",
+        "description": "Gewünschte Länge des Kredites in Monaten"
+      },
+      {
+        "name": "ratingLevel",
+        "type": "CHARACTER",
+        "description": "Rating zwischen A und P (Groß- und Kleinschreibung möglich), wie aus Tabelle bei der Beschreibung des Loan Broker zu entnehmen ist"
+      },
+      {
+        "name": "delayInMilliseconds",
+        "type": "LONG",
+        "description": "Zeit in Millisekunden, um die Antwort verzögert werden soll. Da es sich um einen asynchronen Service handelt kann die Antwort in beliebiger Länge verzögert werden"
+      },
+      {
+        "name": "username",
+        "type": "STRING",
+        "description": "Benutzername der Gruppe"
+      },
+      {
+        "name": "password",
+        "type": "STRING",
+        "description": "Passwort der Gruppe"
+      }
+    ],
+    "banks": [
+        "sparkasse",
+        "psdbank",
+        "raiffeisen",
+        "volksbank",
+        "commerzbank"
+    ]
+  }
+]
