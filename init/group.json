@@ -5,7 +5,7 @@
     },
     "username": "Gruppe01",
     "password": "lkhNqstcxs",
-    "jmsTopic": "ResponseLoanBrokerGruppe01",
+    "jmsQueue": "ResponseLoanBrokerGruppe01",
     "students": [
       "Büsra Alili",
       "Emel Göktas",
@@ -28,7 +28,7 @@
     },
     "username": "Gruppe02",
     "password": "vXMYbbVDax",
-    "jmsTopic": "ResponseLoanBrokerGruppe02",
+    "jmsQueue": "ResponseLoanBrokerGruppe02",
     "students": [
       "Özlem Eryalcin",
       "Beyza Kalinci",
@@ -51,7 +51,7 @@
     },
     "username": "Gruppe03",
     "password": "mgbpiqrDfs",
-    "jmsTopic": "ResponseLoanBrokerGruppe03",
+    "jmsQueue": "ResponseLoanBrokerGruppe03",
     "students": [
       "Fatih Palit",
       "Marjam Rouag",
@@ -74,7 +74,7 @@
     },
     "username": "Gruppe04",
     "password": "wWOhmpdafA",
-    "jmsTopic": "ResponseLoanBrokerGruppe04",
+    "jmsQueue": "ResponseLoanBrokerGruppe04",
     "students": [
       "Anja Misch",
       "Jan Olaf Timmer",
@@ -97,7 +97,7 @@
     },
     "username": "Gruppe05",
     "password": "bNSYmKUjCb",
-    "jmsTopic": "ResponseLoanBrokerGruppe05",
+    "jmsQueue": "ResponseLoanBrokerGruppe05",
     "students": [
       "Luisa Buderer",
       "Fabiana Kariegus"
@@ -119,7 +119,7 @@
     },
     "username": "Gruppe06",
     "password": "WKgKAxAOmc",
-    "jmsTopic": "ResponseLoanBrokerGruppe06",
+    "jmsQueue": "ResponseLoanBrokerGruppe06",
     "students": [
       "Andrej Danewitz",
       "Tim Lühmann",
@@ -142,7 +142,7 @@
     },
     "username": "Gruppe07",
     "password": "LwPdpzMEXC",
-    "jmsTopic": "ResponseLoanBrokerGruppe07",
+    "jmsQueue": "ResponseLoanBrokerGruppe07",
     "students": [
       "Sepideh Ataie Razlighi",
       "Özge Ebru Zeytünlü",
@@ -165,7 +165,7 @@
     },
     "username": "Gruppe08",
     "password": "TVgSqDtcZq",
-    "jmsTopic": "ResponseLoanBrokerGruppe08",
+    "jmsQueue": "ResponseLoanBrokerGruppe08",
     "students": [
       "Helmut Herm Lindel",
       "Marjam Rouag"
@@ -187,7 +187,7 @@
     },
     "username": "Gruppe09",
     "password": "abhiOhDcNz",
-    "jmsTopic": "ResponseLoanBrokerGruppe09",
+    "jmsQueue": "ResponseLoanBrokerGruppe09",
     "students": [],
     "stats": {
       "schufa": 0,
@@ -206,7 +206,7 @@
     },
     "username": "Gruppe10",
     "password": "RdxYraVIEa",
-    "jmsTopic": "ResponseLoanBrokerGruppe10",
+    "jmsQueue": "ResponseLoanBrokerGruppe10",
     "students": [],
     "stats": {
       "schufa": 0,
