@@ -4,8 +4,13 @@
       "$oid": "6150281b8031b5b4e70a881e"
     },
     "title": "Schufa-Auskunft",
-    "description": "Um sich während der Aufgabe mehr auf die Integration statt auf die Erstellung der Komponenten konzentrieren zu können, wurde bereits ein „Credit bureau“ erstellt. Die Komponente ist ein WebService, welcher eine virtuelle Schufa darstellt. Dieser Service ist sowohl als SOAP-Service als auch als REST-Service erreichbar. Die Eingabeparameter entnehmen Sie der Parameterliste. Als Antwort liefert der WebService anschließend ein zufälliges Rating in Form des Schufa Score-Wertes (zwischen 0 und 9.999, siehe Tabelle mit Rating-Leveln). Den zweiten Rückgabewert „failureRiskInPercent“ können sie ignorieren. Um die Anwendung trotz Zufallswerte entsprechend testen zu können, muss auch übergeben werden, welche Ratingstufe gewünscht ist.",
+    "description": "<p>Die Schufa ist ein WebService, welcher eine virtuelle Schufa darstellt. Dieser Service ist sowohl als SOAP-Service als auch als REST-Service erreichbar. Die Eingabeparameter entnehmen Sie der Parameterliste. Als Antwort liefert der WebService anschließend ein zufälliges Rating in Form des Schufa Score-Wertes (\"rating\", als int zwischen 0 und 9.999,) und eine Ausfallwahrscheinlichkeit &nbsp;( “failureRiskInPercent” als double) . Um die Anwendung trotz Zufallswerte entsprechend testen zu können, muss auch übergeben werden, welche Ratingstufe (A bis P) gewünscht ist.</p>",
     "step": 1,
+    "isOpenApiVerbose": true,
+    "contact": {
+      "name": "Jan-Hendrik Hausner",
+      "email": "jan-hendrik.hausner@outlook.com"
+    },
     "endpoints": [
       {
         "type": "REST",
@@ -22,27 +27,58 @@
       {
         "name": "socialSecurityNumber",
         "type": "STRING",
-        "description": "Zufällige Sozialversicherungsnummer z.B. 12123456M123"
+        "description": "Zufällige Sozialversicherungsnummer",
+        "example": "12123456M123"
       },
       {
         "name": "ratingLevel",
         "type": "CHARACTER",
-        "description": "Rating zwischen A und P (Groß- und Kleinschreibung möglich), wie aus Tabelle bei der Beschreibung des Loan Broker zu entnehmen ist"
+        "description": "Bewertung des Debitors",
+        "example": "A"
       },
       {
         "name": "delayInMilliseconds",
         "type": "LONG",
-        "description": "Zeit in Millisekunden, um die Antwort verzögert werden soll, zwischen 0 und 600.000"
+        "description": "Zeit in Millisekunden, um die die Antwort verzögert werden soll",
+        "example": "0"
       },
       {
         "name": "username",
         "type": "STRING",
-        "description": "Benutzername der Gruppe"
+        "description": "Benutzername der Gruppe",
+        "example": "Beispielgruppe"
       },
       {
         "name": "password",
         "type": "STRING",
-        "description": "Passwort der Gruppe"
+        "description": "Passwort der Gruppe",
+        "example": "OOfKqWksmA"
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "mediaType": "application/json",
+        "description": "Schufa-Score des Debitors",
+        "example": "{ \"score\": 9858, \"failureRiskInPercent\": 0.77 }"
+      },
+      {
+        "code": 400,
+        "mediaType": "application/json",
+        "description": "Ungültige Parameter",
+        "example": "{ \"message\": \"[username is required, password is required]\", \"dateTime\": \"2022-01-31T07:43:30\"}"
+      },
+      {
+        "code": 404,
+        "mediaType": "application/json",
+        "description": "Gruppe wurde nicht gefunden",
+        "example": "{ \"message\": \"[group not found by username and password]\", \"dateTime\": \"2022-01-31T07:43:30\"}"
+      },
+      {
+        "code": 500,
+        "mediaType": "application/json",
+        "description": "Interner Server Fehler",
+        "example": ""
       }
     ],
     "banks": [
@@ -54,8 +90,13 @@
       "$oid": "61502fa9afad97203db562b3"
     },
     "title": "Synchrone Bank",
-    "description": "Um schnell erste Erfolge zu erzielen, wurde auch eine virtuelle Bank implementiert. Diese ist eine synchrone Bank und kann wie die Schufa über SOAP oder REST aufgerufen werden. An die Bank kann eine Kreditanfrage gestellt werden. Die benötigten Parameter entnehmen Sie der Parameterliste. Nicht alle Kreditanfragen werden von der Bank akzeptiert. Die Kreditrahmenbedinungen entnehmen Sie aus der Bankbeschreibung. Der Rückgabewert der Bank entspricht einem Zinsatz für den gewünschten Kredit zwischen 0 und 10% vom Datentyp Double als JSON.",
+    "description": "<p>Um einen rudimentären LoanBroker zu ermöglichen, wurde eine Bank implementiert, die synchrone Aufrufe bearbeitet. Diese kann wie die Schufa über SOAP oder REST aufgerufen werden. An die Bank kann eine Kreditanfrage gestellt werden. Die benötigten Parameter entnehmen Sie der Parameterliste. Nicht alle Kreditanfragen werden von der Bank akzeptiert. Die Kreditrahmenbedinungen entnehmen Sie aus der Bankbeschreibung. Der Rückgabewert der Bank entspricht einem Zinsatz für den gewünschten Kredit (\\\"lendingRate\\\" als double zwischen 0 und 10%).</p>",
     "step": 2,
+    "isOpenApiVerbose": true,
+    "contact": {
+      "name": "Jan-Hendrik Hausner",
+      "email": "jan-hendrik.hausner@outlook.com"
+    },
     "endpoints": [
       {
         "type": "REST",
@@ -72,32 +113,64 @@
       {
         "name": "amountInEuros",
         "type": "INTEGER",
-        "description": "Gewünschte Höhe des Kredites in Euro"
+        "description": "Gewünschte Höhe des Kredites in Euro",
+        "example": "30000"
       },
       {
         "name": "termInMonths",
         "type": "INTEGER",
-        "description": "Gewünschte Länge des Kredites in Monaten"
+        "description": "Gewünschte Länge des Kredites in Monaten",
+        "example": "21"
       },
       {
         "name": "ratingLevel",
         "type": "CHARACTER",
-        "description": "Rating zwischen A und P (Groß- und Kleinschreibung möglich), wie aus Tabelle bei der Beschreibung des Loan Broker zu entnehmen ist"
+        "description": "Bewertung des Debitors",
+        "example": "A"
       },
       {
         "name": "delayInMilliseconds",
         "type": "LONG",
-        "description": "Zeit in Millisekunden, um die Antwort verzögert werden soll, zwischen 0 und 600.000"
+        "description": "Zeit in Millisekunden, um die die Antwort verzögert werden soll",
+        "example": "0"
       },
       {
         "name": "username",
         "type": "STRING",
-        "description": "Benutzername der Gruppe"
+        "description": "Benutzername der Gruppe",
+        "example": "Beispielgruppe"
       },
       {
         "name": "password",
         "type": "STRING",
-        "description": "Passwort der Gruppe"
+        "description": "Passwort der Gruppe",
+        "example": "OOfKqWksmA"
+      }
+    ],
+    "responses": [
+      {
+        "code": 200,
+        "mediaType": "application/json",
+        "description": "Kreditzins in Prozent",
+        "example": "{ \"lendingRate\": 3.8 }"
+      },
+      {
+        "code": 400,
+        "mediaType": "application/json",
+        "description": "Ungültige Parameter",
+        "example": "{ \"message\": \"[username is required, password is required]\", \"dateTime\": \"2022-01-31T07:43:30\"}"
+      },
+      {
+        "code": 404,
+        "mediaType": "application/json",
+        "description": "Gruppe wurde nicht gefunden",
+        "example": "{ \"message\": \"[group not found by username and password]\", \"dateTime\": \"2022-01-31T07:43:30\"}"
+      },
+      {
+        "code": 500,
+        "mediaType": "application/json",
+        "description": "Interner Server Fehler",
+        "example": ""
       }
     ],
     "banks": [
@@ -109,8 +182,13 @@
       "$oid": "61503edf6354bd996d9e89a6"
     },
     "title": "Asynchrone Banken",
-    "description": "Neben der synchronen Bank existieren auch bereits vorgegebene asynchrone Banken, welche per JMS erreichbar sind. Um die Banken zu erreichen, müssen Sie im VPN der Hochschule sein und den Port in der URL mit angeben. Sie kommunizieren nicht direkt mit den Banken, sondern mit einem ActiveMQ-Broker als Middleware. Die Messages an den Broker müssen als JSON verpackt sein. Die Message entpricht also einem JSON-Objekt mit den Parametern als einzelne Key-Value-Pairs. Ein Error-Handling wie in den synchronen Services gibt es nicht. Sie übernehmen daher die Anfragegrenzen aus der internen Konfiguration der Banken. Der Rückgabewert der Banken entspricht wie bei der synchronen Bank einem Zinsatz für den gewünschten Kredit zwischen 0 und 10% vom Datentyp Double. Eine Bank hört auf einem Queue des Broker nach Nachrichten für diese Bank (Bei der Sparkasse z.B. „sparkasse“). Sie entnehmen die Antworten der Banken auf ihrem Username-Queue. (Bei der Gruppe mit dem Usernamen test wäre erstellt die Bank ein neues Queue test auf dem Sie dann ihre Antwort entnehmen können.",
+    "description": "<p>Es existieren eine Reihe bereits vorgegebener asynchroner Banken, welche per JMS erreichbar sind. Um die Banken zu erreichen, müssen Sie im VPN der Hochschule sein und den Port in der URL mit angeben. Sie kommunizieren nicht direkt mit den Banken, sondern mit einem ActiveMQ-Broker als Middleware. Die Messages an den Broker sind Textnachrichten, die als JSON strukturiert sind. Die Message entspricht also einem JSON-Objekt mit den Parametern als einzelne Key-Value-Pairs (siehe unten). Ein Error-Handling wie in den synchronen Services gibt es nicht. Sie übernehmen daher die Anfragegrenzen aus der internen Konfiguration der Banken. Die Rückgabewert der Banken enthält neben einem Zinsatz für den gewünschten Kredit zwischen 0 und 10% vom Datentyp Double die Request ID der Anfrage. Eine Bank hört auf einer Queue des Broker nach Nachrichten für diese Bank (Bei der Sparkasse z.B. „sparkasse“). Sie entnehmen die Antworten der Banken auf ihrer Gruppen-Queue, z.B. ResponseLoanBrokerGruppe01.</p><p>Beispiel Textnachricht Request: {\\\"requestId\\\": \\\"123\\\",\\\"amountInEuros\\\": 20000,\\\"termInMonths\\\": 12,\\\"ratingLevel\\\": \\\"B\\\",\\\"delayInMilliseconds\\\": 0,\\\"username\\\": \\\"Gruppe01\\\",\\\"password\\\": \\\"123456\\\"}</p><p>Beispiel Textnachricht Response: {\\\"requestId\\\":\\\"123\\\",\\\"lendingRate\\\":2.738343644690228}</p>",
     "step": 3,
+    "isOpenApiVerbose": false,
+    "contact": {
+      "name": "Jan-Hendrik Hausner",
+      "email": "jan-hendrik.hausner@outlook.com"
+    },
     "endpoints": [
       {
         "type": "JMS",
@@ -122,45 +200,60 @@
       {
         "name": "requestId",
         "type": "STRING",
-        "description": "Zufällige Request-ID"
+        "description": "Zufällige Request-ID",
+        "example": "62a47e4d6230501f22e7c28f"
       },
       {
         "name": "amountInEuros",
         "type": "INTEGER",
-        "description": "Gewünschte Höhe des Kredites in Euro"
+        "description": "Gewünschte Höhe des Kredites in Euro",
+        "example": "Bankabhängig"
       },
       {
         "name": "termInMonths",
         "type": "INTEGER",
-        "description": "Gewünschte Länge des Kredites in Monaten"
+        "description": "Gewünschte Länge des Kredites in Monaten",
+        "example": "Bankabhängig"
       },
       {
         "name": "ratingLevel",
         "type": "CHARACTER",
-        "description": "Rating zwischen A und P (Groß- und Kleinschreibung möglich), wie aus Tabelle bei der Beschreibung des Loan Broker zu entnehmen ist"
+        "description": "Bewertung des Debitors",
+        "example": "A"
       },
       {
         "name": "delayInMilliseconds",
         "type": "LONG",
-        "description": "Zeit in Millisekunden, um die Antwort verzögert werden soll. Da es sich um einen asynchronen Service handelt kann die Antwort in beliebiger Länge verzögert werden"
+        "description": "Zeit in Millisekunden, um die die Antwort verzögert werden soll",
+        "example": "0"
       },
       {
         "name": "username",
         "type": "STRING",
-        "description": "Benutzername der Gruppe"
+        "description": "Benutzername der Gruppe",
+        "example": "Beispielgruppe"
       },
       {
         "name": "password",
         "type": "STRING",
-        "description": "Passwort der Gruppe"
+        "description": "Passwort der Gruppe",
+        "example": "OOfKqWksmA"
+      }
+    ],
+    "responses": [
+      {
+        "code": -1,
+        "mediaType": "application/json",
+        "description": "Kreditzins in Prozent",
+        "example": "{ \"requestId\": \"123\", \"lendingRate\": 2.738343644690228 }"
       }
     ],
     "banks": [
-        "sparkasse",
-        "psdbank",
-        "raiffeisen",
-        "volksbank",
-        "commerzbank"
+      "sparkasse",
+      "psdbank",
+      "raiffeisen",
+      "volksbank",
+      "commerzbank"
     ]
   }
 ]
