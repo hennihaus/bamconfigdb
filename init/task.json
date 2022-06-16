@@ -89,7 +89,7 @@
     "_id": {
       "$oid": "61502fa9afad97203db562b3"
     },
-    "title": "Synchrone Bank",
+    "title": "Deutsche Bank",
     "description": "<p>Um einen rudimentären LoanBroker zu ermöglichen, wurde eine Bank implementiert, die synchrone Aufrufe bearbeitet. Diese kann wie die Schufa über SOAP oder REST aufgerufen werden. An die Bank kann eine Kreditanfrage gestellt werden. Die benötigten Parameter entnehmen Sie der Parameterliste. Nicht alle Kreditanfragen werden von der Bank akzeptiert. Die Kreditrahmenbedinungen entnehmen Sie aus der Bankbeschreibung. Der Rückgabewert der Bank entspricht einem Zinsatz für den gewünschten Kredit (\\\"lendingRate\\\" als double zwischen 0 und 10%).</p>",
     "step": 2,
     "isOpenApiVerbose": true,
