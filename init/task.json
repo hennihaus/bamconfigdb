@@ -152,7 +152,7 @@
         "code": 200,
         "mediaType": "application/json",
         "description": "Kreditzins in Prozent",
-        "example": "{ \"lendingRate\": 3.8 }"
+        "example": "{ \"lendingRateInPercent\": 3.8 }"
       },
       {
         "code": 400,
@@ -245,7 +245,7 @@
         "code": -1,
         "mediaType": "application/json",
         "description": "Kreditzins in Prozent",
-        "example": "{ \"requestId\": \"123\", \"lendingRate\": 2.738343644690228 }"
+        "example": "{ \"requestId\": \"123\", \"lendingRateInPercent\": 2.738343644690228 }"
       }
     ],
     "banks": [
