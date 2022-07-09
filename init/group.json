@@ -207,7 +207,11 @@
     "username": "Beispielgruppe",
     "password": "OOfKqWksmA",
     "jmsQueue": "ResponseLoanBrokerBeispielgruppe",
-    "students": [],
+    "students": [
+      "Angela Merkel",
+      "Max Mustermann",
+      "Thomas Müller"
+    ],
     "stats": {
       "schufa": 0,
       "deutschebank": 0,
