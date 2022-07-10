@@ -4,7 +4,7 @@
       "$oid": "6150281b8031b5b4e70a881e"
     },
     "title": "Schufa-Auskunft",
-    "description": "<p>Die Schufa ist ein WebService, welcher eine virtuelle Schufa darstellt. Dieser Service ist sowohl als SOAP-Service als auch als REST-Service erreichbar. Die Eingabeparameter entnehmen Sie der Parameterliste. Als Antwort liefert der WebService anschließend ein zufälliges Rating in Form des Schufa Score-Wertes (\"rating\", als int zwischen 0 und 9.999,) und eine Ausfallwahrscheinlichkeit &nbsp;( “failureRiskInPercent” als double) . Um die Anwendung trotz Zufallswerte entsprechend testen zu können, muss auch übergeben werden, welche Ratingstufe (A bis P) gewünscht ist.</p>",
+    "description": "<p>Die Schufa ist ein WebService, welcher eine virtuelle Schufa darstellt. Dieser Service ist als REST-Service erreichbar. Die Eingabeparameter entnehmen Sie der Parameterliste. Als Antwort liefert der WebService anschließend ein zufälliges Rating in Form des Schufa Score-Wertes (\"rating\", als int zwischen 0 und 9.999,) und eine Ausfallwahrscheinlichkeit &nbsp;( “failureRiskInPercent” als double) . Um die Anwendung trotz Zufallswerte entsprechend testen zu können, muss auch übergeben werden, welche Ratingstufe (A bis P) gewünscht ist.</p>",
     "step": 1,
     "isOpenApiVerbose": true,
     "contact": {
@@ -16,11 +16,6 @@
         "type": "REST",
         "url": "",
         "docsUrl": "https://bambusinessintegration.wi.hs-furtwangen.de/schufa/docs.html"
-      },
-      {
-        "type": "SOAP",
-        "url": "https://bambusinessintegration.wi.hs-furtwangen.de/schufa/ws",
-        "docsUrl": "https://bambusinessintegration.wi.hs-furtwangen.de/schufa/ws/rating.wsdl"
       }
     ],
     "parameters": [
@@ -90,7 +85,7 @@
       "$oid": "61502fa9afad97203db562b3"
     },
     "title": "Deutsche Bank",
-    "description": "<p>Um einen rudimentären LoanBroker zu ermöglichen, wurde eine Bank implementiert, die synchrone Aufrufe bearbeitet. Diese kann wie die Schufa über SOAP oder REST aufgerufen werden. An die Bank kann eine Kreditanfrage gestellt werden. Die benötigten Parameter entnehmen Sie der Parameterliste. Nicht alle Kreditanfragen werden von der Bank akzeptiert. Die Kreditrahmenbedinungen entnehmen Sie aus der Bankbeschreibung. Der Rückgabewert der Bank entspricht einem Zinsatz für den gewünschten Kredit (\\\"lendingRate\\\" als double zwischen 0 und 10%).</p>",
+    "description": "<p>Um einen rudimentären LoanBroker zu ermöglichen, wurde eine Bank implementiert, die synchrone Aufrufe bearbeitet. Diese kann wie die Schufa über REST aufgerufen werden. An die Bank kann eine Kreditanfrage gestellt werden. Die benötigten Parameter entnehmen Sie der Parameterliste. Nicht alle Kreditanfragen werden von der Bank akzeptiert. Die Kreditrahmenbedinungen entnehmen Sie aus der Bankbeschreibung. Der Rückgabewert der Bank entspricht einem Zinsatz für den gewünschten Kredit (\\\"lendingRate\\\" als double zwischen 0 und 10%).</p>",
     "step": 2,
     "isOpenApiVerbose": true,
     "contact": {
@@ -102,11 +97,6 @@
         "type": "REST",
         "url": "",
         "docsUrl": "https://bambusinessintegration.wi.hs-furtwangen.de/deutschebank/docs.html"
-      },
-      {
-        "type": "SOAP",
-        "url": "https://bambusinessintegration.wi.hs-furtwangen.de/deutschebank/ws",
-        "docsUrl": "https://bambusinessintegration.wi.hs-furtwangen.de/deutschebank/ws/credit.wsdl"
       }
     ],
     "parameters": [
