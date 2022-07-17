@@ -53,25 +53,25 @@
     "responses": [
       {
         "code": 200,
-        "mediaType": "application/json",
+        "contentType": "application/json",
         "description": "Schufa-Score des Debitors",
         "example": "{ \"score\": 9858, \"failureRiskInPercent\": 0.77 }"
       },
       {
         "code": 400,
-        "mediaType": "application/json",
+        "contentType": "application/json",
         "description": "Ungültige Parameter",
         "example": "{ \"message\": \"[username is required, password is required]\", \"dateTime\": \"2022-01-31T07:43:30\" }"
       },
       {
         "code": 404,
-        "mediaType": "application/json",
+        "contentType": "application/json",
         "description": "Gruppe wurde nicht gefunden",
         "example": "{ \"message\": \"[group not found by username and password]\", \"dateTime\": \"2022-01-31T07:43:30\" }"
       },
       {
         "code": 500,
-        "mediaType": "application/json",
+        "contentType": "application/json",
         "description": "Interner Server Fehler",
         "example": "{ \"message\": \"[kotlin.Exception: Internal server error]\", \"dateTime\": \"2022-01-31T07:43:30\" }"
       }
@@ -140,25 +140,25 @@
     "responses": [
       {
         "code": 200,
-        "mediaType": "application/json",
+        "contentType": "application/json",
         "description": "Kreditzins in Prozent",
         "example": "{ \"lendingRateInPercent\": 3.8 }"
       },
       {
         "code": 400,
-        "mediaType": "application/json",
+        "contentType": "application/json",
         "description": "Ungültige Parameter",
         "example": "{ \"message\": \"[username is required, password is required]\", \"dateTime\": \"2022-01-31T07:43:30\" }"
       },
       {
         "code": 404,
-        "mediaType": "application/json",
+        "contentType": "application/json",
         "description": "Gruppe wurde nicht gefunden",
         "example": "{ \"message\": \"[group not found by username and password]\", \"dateTime\": \"2022-01-31T07:43:30\" }"
       },
       {
         "code": 500,
-        "mediaType": "application/json",
+        "contentType": "application/json",
         "description": "Interner Server Fehler",
         "example": "{ \"message\": \"[kotlin.Exception: Internal server error]\", \"dateTime\": \"2022-01-31T07:43:30\" }"
       }
@@ -233,7 +233,7 @@
     "responses": [
       {
         "code": -1,
-        "mediaType": "application/json",
+        "contentType": "application/json",
         "description": "Kreditzins in Prozent",
         "example": "{ \"requestId\": \"123\", \"lendingRateInPercent\": 2.738343644690228 }"
       }
