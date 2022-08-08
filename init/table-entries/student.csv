@@ -1,0 +1,26 @@
+student_uuid,group_uuid,student_firstname,student_lastname
+6a310db6-7d78-4219-8f0f-358afc9c2083,63701a57-91b8-40d4-b4e2-b8dd9e7a75a5,Büsra,Alili
+76351a31-a911-4f02-85b9-e10b0d923123,63701a57-91b8-40d4-b4e2-b8dd9e7a75a5,Emel,Göktas
+757800a5-eabf-4229-82e6-ebca34e51070,63701a57-91b8-40d4-b4e2-b8dd9e7a75a5,Helmut Hermann,Lindel
+8bf7b9ab-cbdb-4ae3-bdea-e53381974c4d,c4a2dd22-f3d4-4de2-9fe0-dbe70062bef9,Özlem,Eryalcin
+bcabdbf2-b307-4981-b3a1-3d51df8a0b34,c4a2dd22-f3d4-4de2-9fe0-dbe70062bef9,Beyza,Kalinci
+c80f9b53-f473-4ea6-959d-5d6597b129ce,c4a2dd22-f3d4-4de2-9fe0-dbe70062bef9,Nadine,Kirin
+9aef2f66-f665-4435-93dd-306838e44ac9,40226a72-b520-4f84-b806-b3ab30ff1769,Fatih,Palit
+b74aa57b-cea6-4d9d-bbcf-a8d5268ed301,40226a72-b520-4f84-b806-b3ab30ff1769,Marjam,Rouag
+1d15663f-705d-4c20-a5ad-5da020204c8e,40226a72-b520-4f84-b806-b3ab30ff1769,Mergim,Selimi
+e56716f8-82ff-4204-880d-6ede717b11ff,9f3df5a6-3adb-4ea1-9a9d-2ba141c4ba5b,Anja,Misch
+f7e448da-4ac6-436e-9293-e7fd54f5a06a,9f3df5a6-3adb-4ea1-9a9d-2ba141c4ba5b,Jan Olaf,Timmer
+412bcc23-4946-4498-9cad-e98af75e824f,9f3df5a6-3adb-4ea1-9a9d-2ba141c4ba5b,Marc,Meß
+9c7436a6-6917-4f3b-8a85-f048e355d31a,cf7726c8-c67a-4b04-86d2-3cf05f6c04a7,Luisa,Buderer
+a59c3f6d-bb5c-420a-bdb1-6577baba527f,cf7726c8-c67a-4b04-86d2-3cf05f6c04a7,Fabiana,Kariegus
+18793552-8074-4721-adea-c85f0f0a5d03,07a98fe2-ea7e-4110-ae84-5ed5ca1b84e3,Andrej,Danewitz
+8d7bc538-b41b-4ca5-b116-0fa46f8abcea,07a98fe2-ea7e-4110-ae84-5ed5ca1b84e3,Tim,Lühmann
+45b9497a-c98d-415c-8d8b-ded38272b734,07a98fe2-ea7e-4110-ae84-5ed5ca1b84e3,Bünyamin Özgür,Hünerli
+0ea6a8d0-715f-4d4a-a2dc-bf483115ec95,dc2910b5-3bbb-4f6b-a8fc-a99d31131cf9,Sepideh Ataie,Razlighi
+bd189d35-fd2a-4f9b-b3d8-3755bad82319,dc2910b5-3bbb-4f6b-a8fc-a99d31131cf9,Özge Ebru,Zeytünlü
+2acd69fc-88e9-4198-812a-9075a2f2a88e,dc2910b5-3bbb-4f6b-a8fc-a99d31131cf9,Mina,Mansur
+f3aaaecb-6919-430f-9620-549099a47b17,217597a8-81e5-4474-9bd1-8c8aa786eaf3,Helmut Herm,Lindel
+4854098d-add5-48ae-846d-831eccec9615,217597a8-81e5-4474-9bd1-8c8aa786eaf3,Marjam,Rouag
+474e90cb-de6e-47f2-844a-44ea7dc09516,9426de16-95b9-4250-b22f-6d1d6d9b8d7e,Angela,Merkel
+31b1631b-66c9-4720-94fc-95891a38f964,9426de16-95b9-4250-b22f-6d1d6d9b8d7e,Max,Mustermann
+f334a0c0-0c26-4499-aa95-061546839a75,9426de16-95b9-4250-b22f-6d1d6d9b8d7e,Thomas,Müller

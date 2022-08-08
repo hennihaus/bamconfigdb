@@ -1,0 +1,7 @@
+credit_configuration_uuid,bank_uuid,credit_configuration_min_amount_in_euros,credit_configuration_max_amount_in_euros,credit_configuration_min_term_in_months,credit_configuration_max_term_in_months,credit_configuration_min_schufa_rating,credit_configuration_max_schufa_rating
+9a821f4c-8096-44c7-9c56-d744af19b648,bf6981d4-0413-4767-8232-c7179b169bc7,10000,50000,6,36,A,P
+4511ad02-9b21-4482-be30-a16b4fa416e2,78eefcd4-2459-412e-857f-60f7c5d531c9,10000,50000,6,36,A,P
+42bd3c3e-082b-4cc2-bb62-47b244b782f6,38be8cac-34c0-4508-93a9-3b570a00e41e,10000,50000,6,36,A,P
+841d6471-fac0-4401-9b4c-1fabfc7888af,216d68ca-b032-4d1a-a711-ea62eaa40056,10000,50000,6,36,A,P
+7a2760b3-4470-4800-ad3a-29533498d55f,989dca13-3a3e-4478-b4b1-6fcd0ce7712f,10000,50000,6,36,A,P
+96c00c9a-9c8f-4057-b6a1-1075399d5345,38b2abd6-7cd8-40ad-ada0-fac97bab7026,10000,50000,6,36,A,P

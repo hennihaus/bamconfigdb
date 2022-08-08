@@ -1,0 +1,8 @@
+bank_uuid,task_uuid,bank_name,bank_jms_queue,bank_thumbnail_url,bank_is_async,bank_is_active
+8ab8fef5-1239-42d5-a199-7cb41f68fc21,72255554-d295-4684-9ff8-8d262849bb3d,Schufa,schufa,https://www.kskgg.de/content/myif/ksk-gross-gerau/work/filiale/de/home/service/schufa-bonitaetscheck/_jcr_content/par/section/section/imagebox1/image.img.jpg/1597729904274.jpg,false,true
+bf6981d4-0413-4767-8232-c7179b169bc7,e2aba7e5-9bb8-458b-a927-8e672b1370f2,Deutsche Bank,deutschebank,https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Deutsche_Bank_logo_without_wordmark.svg/2048px-Deutsche_Bank_logo_without_wordmark.svg.png,false,true
+78eefcd4-2459-412e-857f-60f7c5d531c9,4ff1f9cb-e65d-4c8f-908a-d036700b757e,Sparkasse,sparkasse,https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Sparkasse.svg/2000px-Sparkasse.svg.png,true,true
+38be8cac-34c0-4508-93a9-3b570a00e41e,4ff1f9cb-e65d-4c8f-908a-d036700b757e,PSD Bank,psdbank,https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/PSD_Bank_logo.svg/2000px-PSD_Bank_logo.svg.png,true,true
+216d68ca-b032-4d1a-a711-ea62eaa40056,4ff1f9cb-e65d-4c8f-908a-d036700b757e,Raiffeisen,raiffeisen,https://upload.wikimedia.org/wikipedia/de/thumb/e/eb/Raiffeisen_%C3%96sterreich_logo.svg/2000px-Raiffeisen_%C3%96sterreich_logo.svg.png,true,true
+989dca13-3a3e-4478-b4b1-6fcd0ce7712f,4ff1f9cb-e65d-4c8f-908a-d036700b757e,Volksbank,volksbank,https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Volksbank_Logo.svg/2560px-Volksbank_Logo.svg.png,true,true
+38b2abd6-7cd8-40ad-ada0-fac97bab7026,4ff1f9cb-e65d-4c8f-908a-d036700b757e,Commerzbank,commerzbank,https://logosmarken.com/wp-content/uploads/2021/03/Commerzbank-Logo.png,true,true
