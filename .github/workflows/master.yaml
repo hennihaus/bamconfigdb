@@ -1,4 +1,4 @@
-name: MongoDB CICD
+name: Postgres CICD
 
 on:
   push:
