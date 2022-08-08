@@ -1,0 +1,15 @@
+COPY bamconfigbackend_user."group"(group_uuid, group_username, group_password, group_jms_queue) FROM '/docker-entrypoint-initdb.d/table-entries/group.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.student(student_uuid, group_uuid, student_firstname, student_lastname) FROM '/docker-entrypoint-initdb.d/table-entries/student.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.contact(contact_uuid, contact_firstname, contact_lastname, contact_email) FROM '/docker-entrypoint-initdb.d/table-entries/contact.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.task_integration_step_enum(task_integration_step) FROM '/docker-entrypoint-initdb.d/table-entries/task_integration_step_enum.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.task(task_uuid, contact_uuid, task_integration_step, task_title, task_description, task_is_open_api_verbose) FROM '/docker-entrypoint-initdb.d/table-entries/task.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.endpoint_type_enum(endpoint_type) FROM '/docker-entrypoint-initdb.d/table-entries/endpoint_type_enum.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.endpoint(endpoint_uuid, task_uuid, endpoint_type, endpoint_url, endpoint_docs_url) FROM '/docker-entrypoint-initdb.d/table-entries/endpoint.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.parameter_type_enum(parameter_type) FROM '/docker-entrypoint-initdb.d/table-entries/parameter_type_enum.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.parameter(parameter_uuid, parameter_name, parameter_type, parameter_description, parameter_example) FROM '/docker-entrypoint-initdb.d/table-entries/parameter.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.task_parameter(task_uuid, parameter_uuid) FROM '/docker-entrypoint-initdb.d/table-entries/task_parameter.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.response(response_uuid, response_http_status_code, response_content_type, response_description, response_example_json) FROM '/docker-entrypoint-initdb.d/table-entries/response.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.task_response(task_uuid, response_uuid) FROM '/docker-entrypoint-initdb.d/table-entries/task_response.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.bank(bank_uuid, task_uuid, bank_name, bank_jms_queue, bank_thumbnail_url, bank_is_async, bank_is_active) FROM '/docker-entrypoint-initdb.d/table-entries/bank.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.statistic(bank_name, group_uuid, statistic_requests_count) FROM '/docker-entrypoint-initdb.d/table-entries/statistic.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.credit_configuration(credit_configuration_uuid, bank_uuid, credit_configuration_min_amount_in_euros, credit_configuration_max_amount_in_euros, credit_configuration_min_term_in_months, credit_configuration_max_term_in_months, credit_configuration_min_schufa_rating, credit_configuration_max_schufa_rating) FROM '/docker-entrypoint-initdb.d/table-entries/credit_configuration.csv' DELIMITER ',' CSV HEADER;
