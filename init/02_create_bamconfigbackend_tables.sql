@@ -183,7 +183,13 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.statistic
     CONSTRAINT statistic_updated_timestamp_not_in_past CHECK (statistic_updated_timestamp_with_time_zone >= now())
 );
 
-CREATE TYPE bamconfigbackend_user.rating_level AS ENUM ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'N', 'O', 'P');
+CREATE TABLE IF NOT EXISTS bamconfigbackend_user.credit_configuration_rating_level_enum
+(
+    credit_configuration_rating_level TEXT PRIMARY KEY,
+    CONSTRAINT credit_configuration_rating_level_length CHECK (length(credit_configuration_rating_level) >= 1 AND length(credit_configuration_rating_level) <= 1),
+    CONSTRAINT credit_configuration_rating_level_uppercase CHECK (upper(credit_configuration_rating_level) = credit_configuration_rating_level)
+);
+
 
 CREATE TABLE IF NOT EXISTS bamconfigbackend_user.credit_configuration
 (
@@ -193,8 +199,8 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.credit_configuration
     credit_configuration_max_amount_in_euros INTEGER NOT NULL,
     credit_configuration_min_term_in_months INTEGER NOT NULL,
     credit_configuration_max_term_in_months INTEGER NOT NULL,
-    credit_configuration_min_schufa_rating bamconfigbackend_user.rating_level NOT NULL,
-    credit_configuration_max_schufa_rating bamconfigbackend_user.rating_level NOT NULL,
+    credit_configuration_min_schufa_rating TEXT NOT NULL REFERENCES bamconfigbackend_user.credit_configuration_rating_level_enum ON DELETE CASCADE ON UPDATE NO ACTION,
+    credit_configuration_max_schufa_rating TEXT NOT NULL REFERENCES bamconfigbackend_user.credit_configuration_rating_level_enum ON DELETE CASCADE ON UPDATE NO ACTION,
     CONSTRAINT min_amount_in_euros_positive_inclusive_zero CHECK (credit_configuration_min_amount_in_euros >= 0),
     CONSTRAINT max_amount_in_euros_positive_inclusive_zero CHECK (credit_configuration_max_amount_in_euros >= 0),
     CONSTRAINT min_term_in_months_positive_inclusive_zero CHECK (credit_configuration_min_term_in_months >= 0),
@@ -218,5 +224,5 @@ ALTER TABLE bamconfigbackend_user.response OWNER TO bamconfigbackend_owner;
 ALTER TABLE bamconfigbackend_user.task_response OWNER TO bamconfigbackend_owner;
 ALTER TABLE bamconfigbackend_user.bank OWNER TO bamconfigbackend_owner;
 ALTER TABLE bamconfigbackend_user.statistic OWNER TO bamconfigbackend_owner;
-ALTER TYPE bamconfigbackend_user.rating_level OWNER TO bamconfigbackend_owner;
+ALTER TABLE bamconfigbackend_user.credit_configuration_rating_level_enum OWNER TO bamconfigbackend_owner;
 ALTER TABLE bamconfigbackend_user.credit_configuration OWNER TO bamconfigbackend_owner;
