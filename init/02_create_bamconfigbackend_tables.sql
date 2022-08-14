@@ -25,7 +25,6 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user."group"
     CONSTRAINT group_username_length CHECK (length(group_username) >= 6 AND length(group_username) <= 50),
     CONSTRAINT group_password_length CHECK (length(group_password) >= 60 AND length(group_password) <= 60),
     CONSTRAINT group_jms_queue_length CHECK (length(group_jms_queue) >= 6 AND length(group_jms_queue) <= 50),
-    CONSTRAINT group_created_timestamp_not_in_past CHECK (group_created_timestamp_with_time_zone >= now()),
     CONSTRAINT group_updated_timestamp_not_in_past CHECK (group_updated_timestamp_with_time_zone >= now())
 );
 
@@ -39,7 +38,6 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.student
     student_updated_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
     CONSTRAINT student_firstname_length CHECK (length(student_firstname) >= 2 AND length(student_firstname) <= 50),
     CONSTRAINT student_lastname_length CHECK (length(student_lastname) >= 2 AND length(student_lastname) <= 50),
-    CONSTRAINT student_created_timestamp_not_in_past CHECK (student_created_timestamp_with_time_zone >= now()),
     CONSTRAINT student_updated_timestamp_not_in_past CHECK (student_updated_timestamp_with_time_zone >= now())
 );
 
@@ -54,7 +52,6 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.contact
     CONSTRAINT contact_firstname_length CHECK (length(contact_firstname) >= 2 AND length(contact_firstname) <= 50),
     CONSTRAINT contact_lastname_length CHECK (length(contact_lastname) >= 2 AND length(contact_lastname) <= 50),
     CONSTRAINT contact_email_pattern CHECK (contact_email ~* '^[A-Za-z0-9._+%-]+@[A-Za-z0-9.-]+[.][A-Za-z]+$'),
-    CONSTRAINT contact_created_timestamp_not_in_past CHECK (contact_created_timestamp_with_time_zone >= now()),
     CONSTRAINT contact_updated_timestamp_not_in_past CHECK (contact_updated_timestamp_with_time_zone >= now())
 );
 
@@ -76,7 +73,6 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.task
     task_updated_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
     CONSTRAINT task_title_length CHECK (length(task_title) >= 6 AND length(task_title) <= 50),
     CONSTRAINT task_description_length CHECK (length(task_description) >= 0 AND length(task_description) <= 2000),
-    CONSTRAINT task_created_timestamp_not_in_past CHECK (task_created_timestamp_with_time_zone >= now()),
     CONSTRAINT task_updated_timestamp_not_in_past CHECK (task_updated_timestamp_with_time_zone >= now())
 );
 
@@ -117,7 +113,6 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.parameter
     CONSTRAINT parameter_name_length CHECK (length(parameter_name) >= 2 AND length(parameter_name) <= 50),
     CONSTRAINT parameter_description_length CHECK (length(parameter_description) >= 0 AND length(parameter_description) <= 100),
     CONSTRAINT parameter_example_length CHECK (length(parameter_example) >= 1 AND length(parameter_example) <= 50),
-    CONSTRAINT parameter_created_timestamp_not_in_past CHECK (parameter_created_timestamp_with_time_zone >= now()),
     CONSTRAINT parameter_updated_timestamp_not_in_past CHECK (parameter_updated_timestamp_with_time_zone >= now())
 );
 
@@ -141,7 +136,6 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.response
     CONSTRAINT response_content_type_not_empty CHECK (length(response_content_type) >= 1),
     CONSTRAINT response_description_length CHECK (length(response_description) >= 1 AND length(response_description) <= 100),
     CONSTRAINT response_example_json_not_empty CHECK (response_example_json <> '{}'),
-    CONSTRAINT response_created_timestamp_not_in_past CHECK (response_created_timestamp_with_time_zone >= now()),
     CONSTRAINT response_updated_timestamp_not_in_past CHECK (response_updated_timestamp_with_time_zone >= now())
 );
 
@@ -166,7 +160,6 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.bank
     CONSTRAINT bank_name_length CHECK (length(bank_name) >= 6 AND length(bank_name) <= 50),
     CONSTRAINT bank_jms_queue_length CHECK (length(bank_jms_queue) >= 6 AND length(bank_jms_queue) <= 50),
     CONSTRAINT bank_thumbnail_url_pattern CHECK (bank_thumbnail_url ~* '(^$|^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)(\?([^#]*))?(#(.*))?)'),
-    CONSTRAINT bank_created_timestamp_not_in_past CHECK (bank_created_timestamp_with_time_zone >= now()),
     CONSTRAINT bank_updated_timestamp_not_in_past CHECK (bank_updated_timestamp_with_time_zone >= now())
 );
 
@@ -179,7 +172,6 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.statistic
     statistic_updated_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
     PRIMARY KEY (bank_name, group_uuid),
     CONSTRAINT statistic_requests_count_positive_inclusive_zero CHECK (statistic_requests_count >= 0),
-    CONSTRAINT statistic_created_timestamp_not_in_past CHECK (statistic_created_timestamp_with_time_zone >= now()),
     CONSTRAINT statistic_updated_timestamp_not_in_past CHECK (statistic_updated_timestamp_with_time_zone >= now())
 );
 
