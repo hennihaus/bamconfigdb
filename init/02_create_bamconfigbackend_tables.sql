@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS bamconfigbackend_user.credit_configuration;
 DROP TABLE IF EXISTS bamconfigbackend_user.statistic;
 DROP TABLE IF EXISTS bamconfigbackend_user.student;
-DROP TABLE IF EXISTS bamconfigbackend_user."group";
+DROP TABLE IF EXISTS bamconfigbackend_user.groups;
 DROP TABLE IF EXISTS bamconfigbackend_user.bank;
 DROP TABLE IF EXISTS bamconfigbackend_user.endpoint;
 DROP TABLE IF EXISTS bamconfigbackend_user.endpoint_type_enum;
@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS bamconfigbackend_user.task;
 DROP TABLE IF EXISTS bamconfigbackend_user.task_integration_step_enum;
 DROP TABLE IF EXISTS bamconfigbackend_user.contact;
 
-CREATE TABLE IF NOT EXISTS bamconfigbackend_user."group"
+CREATE TABLE IF NOT EXISTS bamconfigbackend_user.groups
 (
     group_uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     group_username TEXT NOT NULL UNIQUE,
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user."group"
 CREATE TABLE IF NOT EXISTS bamconfigbackend_user.student
 (
     student_uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-    group_uuid UUID NOT NULL REFERENCES bamconfigbackend_user."group" ON DELETE CASCADE ON UPDATE NO ACTION,
+    group_uuid UUID NOT NULL REFERENCES bamconfigbackend_user.groups ON DELETE CASCADE ON UPDATE NO ACTION,
     student_firstname TEXT NOT NULL,
     student_lastname TEXT NOT NULL,
     student_created_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -167,7 +167,7 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.statistic
 (
     statistic_id SERIAL PRIMARY KEY,
     bank_name TEXT NOT NULL REFERENCES bamconfigbackend_user.bank (bank_name) ON DELETE CASCADE ON UPDATE NO ACTION,
-    group_uuid UUID NOT NULL REFERENCES bamconfigbackend_user."group" ON DELETE CASCADE ON UPDATE NO ACTION,
+    group_uuid UUID NOT NULL REFERENCES bamconfigbackend_user.groups ON DELETE CASCADE ON UPDATE NO ACTION,
     statistic_requests_count BIGINT NOT NULL DEFAULT 0,
     statistic_created_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
     statistic_updated_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.credit_configuration
     CONSTRAINT min_schufa_rating_smaller_equals_max_schufa_rating CHECK (credit_configuration_min_schufa_rating <= credit_configuration_max_schufa_rating)
 );
 
-ALTER TABLE bamconfigbackend_user."group" OWNER TO bamconfigbackend_owner;
+ALTER TABLE bamconfigbackend_user.groups OWNER TO bamconfigbackend_owner;
 ALTER TABLE bamconfigbackend_user.student OWNER TO bamconfigbackend_owner;
 ALTER TABLE bamconfigbackend_user.contact OWNER TO bamconfigbackend_owner;
 ALTER TABLE bamconfigbackend_user.task_integration_step_enum OWNER TO bamconfigbackend_owner;
