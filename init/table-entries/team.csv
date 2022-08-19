@@ -1,4 +1,4 @@
-group_uuid,group_username,group_password,group_jms_queue
+team_uuid,team_username,team_password,team_jms_queue
 63701a57-91b8-40d4-b4e2-b8dd9e7a75a5,Gruppe01,$2y$10$BL.vvMEqmk.UEnOfmE2YN.Ko42HA6JOhkE0QNWaV7kQR42d8hbbFe,ResponseLoanBrokerGruppe01
 c4a2dd22-f3d4-4de2-9fe0-dbe70062bef9,Gruppe02,$2y$10$qfDMj86S2u7VorBAeJsFGuIxd72osvbMtq3PTA8ws9lbIbbiF0gaK,ResponseLoanBrokerGruppe02
 40226a72-b520-4f84-b806-b3ab30ff1769,Gruppe03,$2y$10$KDs/y/Jz1gMDr57BZy.8kOgJyDg6oLtPEWNfhsPYPSu2QoocuGuiS,ResponseLoanBrokerGruppe03
