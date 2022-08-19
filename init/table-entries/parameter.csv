@@ -2,8 +2,8 @@ parameter_uuid,parameter_name,parameter_type,parameter_description,parameter_exa
 caba3d46-2e06-4678-8690-542ce08acda0,socialSecurityNumber,STRING,"Zufällige Sozialversicherungsnummer",12123456M123
 b5beb647-26be-4e5e-bbee-b4279b9c8e90,ratingLevel,CHARACTER,"Bewertung des Debitors",A
 200916e1-9f68-48ba-9fdd-672f27bfe123,delayInMilliseconds,LONG,"Zeit in Millisekunden, um die die Antwort verzögert werden soll",0
-58e5c73b-cad6-4b2c-8e25-635b4e5eb7c6,username,STRING,"Benutzername der Gruppe",Beispielgruppe
-e17421f6-26d6-422a-9087-1ce3dcdf6a12,password,STRING,"Passwort der Gruppe",OOfKqWksmA
+58e5c73b-cad6-4b2c-8e25-635b4e5eb7c6,username,STRING,"Benutzername des Teams",Beispielteam
+e17421f6-26d6-422a-9087-1ce3dcdf6a12,password,STRING,"Passwort des Teams",OOfKqWksmA
 8fbf56d5-ac30-42aa-aca3-24dde32c63fa,amountInEuros,INTEGER,"Gewünschte Höhe des Kredites in Euro",30000
 77bc374e-dcb6-4859-b356-c511a5860bdc,termInMonths,INTEGER,"Gewünschte Länge des Kredites in Monaten",21
 0ae3aa19-e421-4c5f-bb9a-d9f932689e5f,requestId,CHARACTER,"Zufällige Request-ID",42455280-4a1b-43d7-97a8-cc0beaaa0829
