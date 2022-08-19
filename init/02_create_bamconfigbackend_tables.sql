@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS bamconfigbackend_user.credit_configuration;
 DROP TABLE IF EXISTS bamconfigbackend_user.statistic;
 DROP TABLE IF EXISTS bamconfigbackend_user.student;
-DROP TABLE IF EXISTS bamconfigbackend_user.groups;
+DROP TABLE IF EXISTS bamconfigbackend_user.team;
 DROP TABLE IF EXISTS bamconfigbackend_user.bank;
 DROP TABLE IF EXISTS bamconfigbackend_user.endpoint;
 DROP TABLE IF EXISTS bamconfigbackend_user.endpoint_type_enum;
@@ -14,24 +14,24 @@ DROP TABLE IF EXISTS bamconfigbackend_user.task;
 DROP TABLE IF EXISTS bamconfigbackend_user.task_integration_step_enum;
 DROP TABLE IF EXISTS bamconfigbackend_user.contact;
 
-CREATE TABLE IF NOT EXISTS bamconfigbackend_user.groups
+CREATE TABLE IF NOT EXISTS bamconfigbackend_user.team
 (
-    group_uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-    group_username TEXT NOT NULL UNIQUE,
-    group_password TEXT NOT NULL UNIQUE,
-    group_jms_queue TEXT NOT NULL UNIQUE,
-    group_created_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
-    group_updated_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
-    CONSTRAINT group_username_length CHECK (length(group_username) >= 6 AND length(group_username) <= 50),
-    CONSTRAINT group_password_length CHECK (length(group_password) >= 60 AND length(group_password) <= 60),
-    CONSTRAINT group_jms_queue_length CHECK (length(group_jms_queue) >= 6 AND length(group_jms_queue) <= 50),
-    CONSTRAINT group_updated_timestamp_not_in_past CHECK (group_updated_timestamp_with_time_zone >= now())
+    team_uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    team_username TEXT NOT NULL UNIQUE,
+    team_password TEXT NOT NULL UNIQUE,
+    team_jms_queue TEXT NOT NULL UNIQUE,
+    team_created_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
+    team_updated_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
+    CONSTRAINT team_username_length CHECK (length(team_username) >= 6 AND length(team_username) <= 50),
+    CONSTRAINT team_password_length CHECK (length(team_password) >= 60 AND length(team_password) <= 60),
+    CONSTRAINT team_jms_queue_length CHECK (length(team_jms_queue) >= 6 AND length(team_jms_queue) <= 50),
+    CONSTRAINT team_updated_timestamp_not_in_past CHECK (team_updated_timestamp_with_time_zone >= now())
 );
 
 CREATE TABLE IF NOT EXISTS bamconfigbackend_user.student
 (
     student_uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-    group_uuid UUID NOT NULL REFERENCES bamconfigbackend_user.groups ON DELETE CASCADE ON UPDATE NO ACTION,
+    team_uuid UUID NOT NULL REFERENCES bamconfigbackend_user.team ON DELETE CASCADE ON UPDATE NO ACTION,
     student_firstname TEXT NOT NULL,
     student_lastname TEXT NOT NULL,
     student_created_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
@@ -167,11 +167,11 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.statistic
 (
     statistic_id SERIAL PRIMARY KEY,
     bank_name TEXT NOT NULL REFERENCES bamconfigbackend_user.bank (bank_name) ON DELETE CASCADE ON UPDATE NO ACTION,
-    group_uuid UUID NOT NULL REFERENCES bamconfigbackend_user.groups ON DELETE CASCADE ON UPDATE NO ACTION,
+    team_uuid UUID NOT NULL REFERENCES bamconfigbackend_user.team ON DELETE CASCADE ON UPDATE NO ACTION,
     statistic_requests_count BIGINT NOT NULL DEFAULT 0,
     statistic_created_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
     statistic_updated_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
-    CONSTRAINT bank_name_group_uuid_unique UNIQUE(bank_name, group_uuid),
+    CONSTRAINT bank_name_team_uuid_unique UNIQUE(bank_name, team_uuid),
     CONSTRAINT statistic_requests_count_positive_inclusive_zero CHECK (statistic_requests_count >= 0),
     CONSTRAINT statistic_updated_timestamp_not_in_past CHECK (statistic_updated_timestamp_with_time_zone >= now())
 );
@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.credit_configuration
     CONSTRAINT min_schufa_rating_smaller_equals_max_schufa_rating CHECK (credit_configuration_min_schufa_rating <= credit_configuration_max_schufa_rating)
 );
 
-ALTER TABLE bamconfigbackend_user.groups OWNER TO bamconfigbackend_owner;
+ALTER TABLE bamconfigbackend_user.team OWNER TO bamconfigbackend_owner;
 ALTER TABLE bamconfigbackend_user.student OWNER TO bamconfigbackend_owner;
 ALTER TABLE bamconfigbackend_user.contact OWNER TO bamconfigbackend_owner;
 ALTER TABLE bamconfigbackend_user.task_integration_step_enum OWNER TO bamconfigbackend_owner;

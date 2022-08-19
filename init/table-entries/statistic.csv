@@ -1,4 +1,4 @@
-bank_name,group_uuid,statistic_requests_count
+bank_name,team_uuid,statistic_requests_count
 Schufa,63701a57-91b8-40d4-b4e2-b8dd9e7a75a5,0
 Deutsche Bank,63701a57-91b8-40d4-b4e2-b8dd9e7a75a5,0
 Sparkasse,63701a57-91b8-40d4-b4e2-b8dd9e7a75a5,0

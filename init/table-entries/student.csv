@@ -1,4 +1,4 @@
-student_uuid,group_uuid,student_firstname,student_lastname
+student_uuid,team_uuid,student_firstname,student_lastname
 6a310db6-7d78-4219-8f0f-358afc9c2083,63701a57-91b8-40d4-b4e2-b8dd9e7a75a5,Büsra,Alili
 76351a31-a911-4f02-85b9-e10b0d923123,63701a57-91b8-40d4-b4e2-b8dd9e7a75a5,Emel,Göktas
 757800a5-eabf-4229-82e6-ebca34e51070,63701a57-91b8-40d4-b4e2-b8dd9e7a75a5,Helmut Hermann,Lindel
