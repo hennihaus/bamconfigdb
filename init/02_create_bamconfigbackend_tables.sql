@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.team
     team_created_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
     team_updated_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
     CONSTRAINT team_username_length CHECK (length(team_username) >= 6 AND length(team_username) <= 50),
-    CONSTRAINT team_password_length CHECK (length(team_password) >= 60 AND length(team_password) <= 60),
+    CONSTRAINT team_password_length CHECK (length(team_password) >= 56 AND length(team_password) <= 112),
     CONSTRAINT team_jms_queue_length CHECK (length(team_jms_queue) >= 6 AND length(team_jms_queue) <= 50)
 );
 
