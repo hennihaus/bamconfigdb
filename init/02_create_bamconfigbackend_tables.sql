@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.team
 (
     team_uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,
     team_username TEXT NOT NULL UNIQUE,
-    team_password TEXT NOT NULL UNIQUE,
+    team_password VARCHAR(112) NOT NULL UNIQUE,
     team_jms_queue TEXT NOT NULL UNIQUE,
     team_created_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
     team_updated_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
