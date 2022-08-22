@@ -159,12 +159,12 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.bank
 CREATE TABLE IF NOT EXISTS bamconfigbackend_user.statistic
 (
     statistic_id SERIAL PRIMARY KEY,
-    bank_name TEXT NOT NULL REFERENCES bamconfigbackend_user.bank (bank_name) ON DELETE CASCADE ON UPDATE NO ACTION,
+    bank_uuid UUID NOT NULL REFERENCES bamconfigbackend_user.bank ON DELETE CASCADE ON UPDATE NO ACTION,
     team_uuid UUID NOT NULL REFERENCES bamconfigbackend_user.team ON DELETE CASCADE ON UPDATE NO ACTION,
     statistic_requests_count BIGINT NOT NULL DEFAULT 0,
     statistic_created_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
     statistic_updated_timestamp_with_time_zone TIMESTAMPTZ NOT NULL DEFAULT now(),
-    CONSTRAINT bank_name_team_uuid_unique UNIQUE(bank_name, team_uuid),
+    CONSTRAINT bank_uuid_team_uuid_unique UNIQUE(bank_uuid, team_uuid),
     CONSTRAINT statistic_requests_count_positive_inclusive_zero CHECK (statistic_requests_count >= 0)
 );
 
