@@ -6,4 +6,4 @@ b5beb647-26be-4e5e-bbee-b4279b9c8e90,ratingLevel,CHARACTER,"Bewertung des Debito
 e17421f6-26d6-422a-9087-1ce3dcdf6a12,password,STRING,"Passwort des Teams",OOfKqWksmA
 8fbf56d5-ac30-42aa-aca3-24dde32c63fa,amountInEuros,INTEGER,"Gewünschte Höhe des Kredites in Euro",30000
 77bc374e-dcb6-4859-b356-c511a5860bdc,termInMonths,INTEGER,"Gewünschte Länge des Kredites in Monaten",21
-0ae3aa19-e421-4c5f-bb9a-d9f932689e5f,requestId,CHARACTER,"Zufällige Request-ID",42455280-4a1b-43d7-97a8-cc0beaaa0829
+0ae3aa19-e421-4c5f-bb9a-d9f932689e5f,requestId,STRING,"Zufällige Request-ID",42455280-4a1b-43d7-97a8-cc0beaaa0829
