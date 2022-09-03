@@ -179,7 +179,7 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.credit_configuration_rating_lev
 CREATE TABLE IF NOT EXISTS bamconfigbackend_user.credit_configuration
 (
     credit_configuration_uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-    bank_uuid UUID NOT NULL REFERENCES bamconfigbackend_user.bank ON DELETE CASCADE ON UPDATE NO ACTION,
+    bank_uuid UUID NOT NULL UNIQUE REFERENCES bamconfigbackend_user.bank ON DELETE CASCADE ON UPDATE NO ACTION,
     credit_configuration_min_amount_in_euros INTEGER NOT NULL,
     credit_configuration_max_amount_in_euros INTEGER NOT NULL,
     credit_configuration_min_term_in_months INTEGER NOT NULL,
