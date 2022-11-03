@@ -1,6 +1,6 @@
 response_uuid,response_http_status_code,response_content_type,response_description,response_example_json
 d95fe79a-ee08-4481-86d2-6b95f0b96f99,200,application/json,Schufa-Score des Debitors,"{""score"": 9858, ""failureRiskInPercent"": 0.77}"
-a4133bba-824a-4063-abdf-29399ccf685f,400,application/json,Ungültige Parameter,"{""reasons"":[{""exception"": ""RequestValidationException"", ""message"": ""username is required""}, {""exception"": ""RequestValidationException"", ""message"": ""password is required""}], ""dateTime"": ""2022-01-31T07:43:30""}"
+a4133bba-824a-4063-abdf-29399ccf685f,400,application/json,Ungültige Parameter,"{""reasons"":[{""exception"": ""RequestValidationException"", ""message"": ""password is required""}], ""dateTime"": ""2022-01-31T07:43:30""}"
 7736d7b7-9f55-4a2c-8e6a-7f7fb1bf6ce5,404,application/json,Team wurde nicht gefunden,"{""reasons"":[{""exception"": ""NotFoundException"", ""message"": ""team not found by username and password""}], ""dateTime"": ""2022-01-31T07:43:30""}"
 52c2b022-7b0b-4017-baba-3dae02f938b0,500,application/json,Interner Server Fehler,"{""reasons"":[{""exception"": ""Exception"", ""message"": ""internal server error""}], ""dateTime"": ""2022-01-31T07:43:30""}"
 92d72b55-c319-45a8-bde5-3112661dc282,200,application/json,Kreditzins in Prozent,"{""lendingRateInPercent"": 3.8}"
