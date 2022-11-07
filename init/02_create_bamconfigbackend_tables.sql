@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS bamconfigbackend_user.team_type_enum;
 DROP TABLE IF EXISTS bamconfigbackend_user.credit_configuration;
 DROP TABLE IF EXISTS bamconfigbackend_user.statistic;
 DROP TABLE IF EXISTS bamconfigbackend_user.student;
@@ -14,9 +15,17 @@ DROP TABLE IF EXISTS bamconfigbackend_user.task;
 DROP TABLE IF EXISTS bamconfigbackend_user.task_integration_step_enum;
 DROP TABLE IF EXISTS bamconfigbackend_user.contact;
 
+CREATE TABLE IF NOT EXISTS bamconfigbackend_user.team_type_enum
+(
+    team_type TEXT PRIMARY KEY,
+    CONSTRAINT team_type_length CHECK (length(team_type) >= 1),
+    CONSTRAINT team_type_uppercase CHECK (upper(team_type) = team_type)
+);
+
 CREATE TABLE IF NOT EXISTS bamconfigbackend_user.team
 (
     team_uuid UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+    team_type TEXT NOT NULL REFERENCES bamconfigbackend_user.team_type_enum ON DELETE CASCADE ON UPDATE NO ACTION,
     team_username TEXT NOT NULL UNIQUE,
     team_password TEXT NOT NULL UNIQUE,
     team_jms_queue TEXT NOT NULL UNIQUE,
@@ -195,6 +204,7 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.credit_configuration
     CONSTRAINT min_schufa_rating_smaller_equals_max_schufa_rating CHECK (credit_configuration_min_schufa_rating <= credit_configuration_max_schufa_rating)
 );
 
+ALTER TABLE bamconfigbackend_user.team_type_enum OWNER TO bamconfigbackend_owner;
 ALTER TABLE bamconfigbackend_user.team OWNER TO bamconfigbackend_owner;
 ALTER TABLE bamconfigbackend_user.student OWNER TO bamconfigbackend_owner;
 ALTER TABLE bamconfigbackend_user.contact OWNER TO bamconfigbackend_owner;

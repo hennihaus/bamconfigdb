@@ -1,4 +1,5 @@
-COPY bamconfigbackend_user.team(team_uuid, team_username, team_password, team_jms_queue) FROM '/docker-entrypoint-initdb.d/table-entries/team.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.team_type_enum(team_type) FROM '/docker-entrypoint-initdb.d/table-entries/team_type_enum.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.team(team_uuid, team_type, team_username, team_password, team_jms_queue) FROM '/docker-entrypoint-initdb.d/table-entries/team.csv' DELIMITER ',' CSV HEADER;
 COPY bamconfigbackend_user.student(student_uuid, team_uuid, student_firstname, student_lastname) FROM '/docker-entrypoint-initdb.d/table-entries/student.csv' DELIMITER ',' CSV HEADER;
 COPY bamconfigbackend_user.contact(contact_uuid, contact_firstname, contact_lastname, contact_email) FROM '/docker-entrypoint-initdb.d/table-entries/contact.csv' DELIMITER ',' CSV HEADER;
 COPY bamconfigbackend_user.task_integration_step_enum(task_integration_step) FROM '/docker-entrypoint-initdb.d/table-entries/task_integration_step_enum.csv' DELIMITER ',' CSV HEADER;
