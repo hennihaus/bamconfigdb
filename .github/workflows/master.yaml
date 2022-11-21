@@ -28,7 +28,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASS }}
 
       - name: Build test docker image
-        run: docker build . --file prod.Dockerfile --tag ${{ github.repository }}:${{ steps.tag-version.outputs.new_tag }}-test --tag ${{ github.repository }}:latest-test
+        run: docker build . --file test.Dockerfile --tag ${{ github.repository }}:${{ steps.tag-version.outputs.new_tag }}-test --tag ${{ github.repository }}:latest-test
 
       - name: Push versioned test docker image
         run: docker push ${{ github.repository }}:${{ steps.tag-version.outputs.new_tag }}-test
