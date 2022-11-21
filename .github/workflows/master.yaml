@@ -27,11 +27,20 @@ jobs:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASS }}
 
-      - name: Build Docker Image
-        run: docker build . --file Dockerfile --tag ${{ github.repository }}:${{ steps.tag-version.outputs.new_tag }} --tag ${{ github.repository }}:latest
+      - name: Build test docker image
+        run: docker build . --file prod.Dockerfile --tag ${{ github.repository }}:${{ steps.tag-version.outputs.new_tag }}-test --tag ${{ github.repository }}:latest-test
 
-      - name: Push versioned Docker Image
+      - name: Push versioned test docker image
+        run: docker push ${{ github.repository }}:${{ steps.tag-version.outputs.new_tag }}-test
+
+      - name: Push latest test docker image
+        run: docker push ${{ github.repository }}:latest-test
+
+      - name: Build prod docker image
+        run: docker build . --file prod.Dockerfile --tag ${{ github.repository }}:${{ steps.tag-version.outputs.new_tag }} --tag ${{ github.repository }}:latest
+
+      - name: Push versioned prod docker image
         run: docker push ${{ github.repository }}:${{ steps.tag-version.outputs.new_tag }}
 
-      - name: Push latest Docker Image
+      - name: Push latest prod docker image
         run: docker push ${{ github.repository }}:latest
