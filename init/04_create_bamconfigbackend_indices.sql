@@ -1,2 +1,1 @@
 CREATE UNIQUE INDEX ON bamconfigbackend_user.team(team_type) WHERE team_type = 'EXAMPLE';
-CREATE RULE protect_example_team AS ON DELETE TO bamconfigbackend_user.team WHERE team_type = 'EXAMPLE' DO INSTEAD NOTHING;
