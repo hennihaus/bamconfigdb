@@ -4,7 +4,7 @@ ENV POSTGRES_DB=bambusinessintegration
 ENV POSTGRES_USER=hfubusinessintegrations
 ENV POSTGRES_PASSWORD=dn6WC8NTtM3WmCXA
 
-ARG TEAM_LIMIT=bbf8f214-5113-44f4-86ac-89d30eba469b
+ARG TEAM_LIMIT=8f7604e3-a0fd-49ea-a8a1-a51e92e95bc1
 
 COPY init/ docker-entrypoint-initdb.d/
 
