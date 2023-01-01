@@ -1,4 +1,4 @@
-FROM postgres:14.4
+FROM postgres:15.1
 
 ENV POSTGRES_DB=bambusinessintegration
 ENV POSTGRES_USER=hfubusinessintegrations
