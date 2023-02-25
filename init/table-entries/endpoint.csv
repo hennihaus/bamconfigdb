@@ -1,4 +1,4 @@
 endpoint_uuid,task_uuid,endpoint_type,endpoint_url,endpoint_docs_url
-a2058a25-5934-414a-a67f-afeb4c0e1bec,72255554-d295-4684-9ff8-8d262849bb3d,REST,"",https://bambusinessintegration.wi.hs-furtwangen.de/schufa/docs.html
-08191f25-c0c0-43ac-8244-217965006118,e2aba7e5-9bb8-458b-a927-8e672b1370f2,REST,"",https://bambusinessintegration.wi.hs-furtwangen.de/deutschebank/docs.html
+a2058a25-5934-414a-a67f-afeb4c0e1bec,72255554-d295-4684-9ff8-8d262849bb3d,REST,"",https://hennihaus.github.io/bamschufarest
+08191f25-c0c0-43ac-8244-217965006118,e2aba7e5-9bb8-458b-a927-8e672b1370f2,REST,"",https://hennihaus.github.io/bambankrest
 35540453-ea3d-4f87-a19f-486c29e68b4f,4ff1f9cb-e65d-4c8f-908a-d036700b757e,JMS,tcp://bambusinessintegration.wi.hs-furtwangen.de:61616,""
