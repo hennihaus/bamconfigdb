@@ -3,7 +3,7 @@ COPY bamconfigbackend_user.team(team_uuid, team_type, team_username, team_passwo
 COPY bamconfigbackend_user.student(student_uuid, team_uuid, student_firstname, student_lastname) FROM '/docker-entrypoint-initdb.d/table-entries/student.csv' DELIMITER ',' CSV HEADER;
 COPY bamconfigbackend_user.contact(contact_uuid, contact_firstname, contact_lastname, contact_email) FROM '/docker-entrypoint-initdb.d/table-entries/contact.csv' DELIMITER ',' CSV HEADER;
 COPY bamconfigbackend_user.task_integration_step_enum(task_integration_step) FROM '/docker-entrypoint-initdb.d/table-entries/task_integration_step_enum.csv' DELIMITER ',' CSV HEADER;
-COPY bamconfigbackend_user.task(task_uuid, contact_uuid, task_integration_step, task_title, task_description, task_is_open_api_verbose) FROM '/docker-entrypoint-initdb.d/table-entries/task.csv' DELIMITER ',' CSV HEADER;
+COPY bamconfigbackend_user.task(task_uuid, contact_uuid, task_integration_step, task_title, task_description, task_description_delta, task_is_open_api_verbose) FROM '/docker-entrypoint-initdb.d/table-entries/task.csv' DELIMITER ',' CSV HEADER;
 COPY bamconfigbackend_user.endpoint_type_enum(endpoint_type) FROM '/docker-entrypoint-initdb.d/table-entries/endpoint_type_enum.csv' DELIMITER ',' CSV HEADER;
 COPY bamconfigbackend_user.endpoint(endpoint_uuid, task_uuid, endpoint_type, endpoint_url, endpoint_docs_url) FROM '/docker-entrypoint-initdb.d/table-entries/endpoint.csv' DELIMITER ',' CSV HEADER;
 COPY bamconfigbackend_user.parameter_type_enum(parameter_type) FROM '/docker-entrypoint-initdb.d/table-entries/parameter_type_enum.csv' DELIMITER ',' CSV HEADER;
