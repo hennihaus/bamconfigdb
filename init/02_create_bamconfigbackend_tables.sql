@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS bamconfigbackend_user.task
     task_integration_step INTEGER NOT NULL UNIQUE REFERENCES bamconfigbackend_user.task_integration_step_enum ON DELETE CASCADE ON UPDATE NO ACTION,
     task_title TEXT NOT NULL UNIQUE,
     task_description TEXT NOT NULL,
-    task_description_delta JSON NOT NULL,
+    task_description_delta JSONB NOT NULL,
     task_is_open_api_verbose BOOLEAN NOT NULL,
     task_created_timestamp TIMESTAMP NOT NULL DEFAULT now(),
     task_updated_timestamp TIMESTAMP NOT NULL DEFAULT now(),
